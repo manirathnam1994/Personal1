@@ -1,0 +1,122 @@
+/* To set button spacing in the form */
+.form-row > .col, .form-row > [class*='col-']{
+  padding-right: 15px !important;
+}
+
+/*To set button width */
+ .btn-sizing  
+ .btn-sm{
+    min-width:120px !important;
+    margin-bottom:0px !important;
+    padding-left:0px !important;
+}
+
+/* To set spacing between table and form */
+.divSpace {
+ padding-top: 5px;
+}
+
+/* To set table height */
+@media (min-width:768px) {
+table tbody {
+ max-height:calc(100vh - 250px) !important; 
+ overflow-y:auto !important;
+ overflow-x:hidden!important;
+ } 
+}
+
+/* To set space b/w buttons*/
+.btn-sm{
+    margin-bottom: 3px !important;
+}
+
+/* To set accordion for card header and card body for the table */
+.card{
+ border-top-style: none !important;
+}
+
+.card-header{
+ padding:0px !important;  
+ margin-bottom: 0px !important;
+}
+
+.card-body{ 
+ padding-top:0px !important;
+ padding-left: 0px !important;
+ padding-right:0px !important;
+ padding-bottom:0px !important;
+ background-color: none !important;
+}
+
+/* To set collapse icon for the table */
+.accordion .card-header .card-title:after
+{
+ float:right;
+ font-family:"FontAwesome";
+ content:"\f107";
+ color: #d3ebf7;
+ padding-right: 1% !important;
+
+}
+.accordion .card-header.collapsed .card-title:after{
+ content:"\f106";
+}
+
+/* */
+.lds-dual-ring {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  padding-left: 25px;
+
+
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 17px;
+  height: 17px;
+  margin: -8px;
+  border-radius: 50%;
+  border: 5px solid #2a67a5;
+  border-color: #2a67a5 transparent #2a67a5 transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+.lds-dual-ring-load {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  padding-left: 25px;
+
+
+}
+.lds-dual-ring-load:after {
+  content: " ";
+  display: block;
+  width: 17px;
+  height: 17px;
+  margin: -8px;
+  border-radius: 50%;
+  border: 5px solid white;
+  border-color: white transparent white transparent;
+  animation: lds-dual-ring-load 1.2s linear infinite;
+}
+@keyframes lds-dual-ring-load {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+

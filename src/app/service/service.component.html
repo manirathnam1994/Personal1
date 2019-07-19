@@ -1,0 +1,101 @@
+<div class="formHeader">
+    <span class="formTitle">Service Query</span>
+</div>
+<div class="formContainer" style="text-align: center !important;">
+    <form [formGroup]="serviceForm" (ngSubmit)="onSubmit()">
+        <div class="card m-b-0">
+            <div class="form-body" style="padding-bottom:0.5rem !important;">
+                <div class="row-alignment">
+                    <div class="col-sm-12 col-md-1">
+                        <label>Environment</label>
+                    </div>
+                    <div class="col-sm-12 col-md-2">
+                        <select class="form-control" formControlName="environment"
+                            [ngClass]="{ 'is-invalid': submitted && formValues.environment.errors }">
+                            <option></option>
+                            <option *ngFor="let envs of environment" value="{{envs}}">
+                                {{envs}}</option>
+                        </select>
+                    </div>
+                    <div class="form-row  float-right" style="margin-left:5rem !important;">
+                        <div class="col-xs-4">
+                            <button type="submit" class="btn btn-sm  btn-success float-right">Submit</button>
+                        </div>
+                        <div class="col-xs-4">
+                            <button type="button" class="btn btn-sm  btn-danger float-right"
+                                (click)="reset()">Reset</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="divSpace"></div>
+<div class="row-alignment">
+    <div class="col-xs-4 btn-sizing" style="margin-right:10px;">
+        <button type="submit" class="btn btn-sm  btn-success " [hidden]="startServiceHide">Start All Services</button>
+    </div>
+    <div class="col-xs-4 btn-sizing">
+        <button type="button" class="btn btn-sm  btn-danger " [hidden]="stopServiceHide">Stop All
+            Services</button>
+    </div>
+</div>
+<div class="tableSpace"></div>
+<div class="accordion " id="accordion">
+    <table class="table table-sm table-striped card m-b-0" [hidden]="TableHeaderHide">
+        <tr class="thead-colour" style="position:absolute !important;">
+            <th style="width: 10% !important; ">S.No</th>
+            <th style="width: 47.5% !important;">Service Name</th>
+            <th style="width: 10% !important;">Status</th>
+            <th style="width: 10% !important;">Start/Stop</th>
+        </tr>
+        <ng-container *ngFor="let sname of serverList">
+            <thead class="thead-colour">
+                <tr style="margin-top:2.1rem !important;">
+                    <th style="width: 10% !important;" id="TableItems">{{sname}}</th>
+                    <th colspan="2">
+                        <div class="row ">
+                            <a class=" btn-sizing" style="margin-right:10px;">
+                                <button type="submit" class="btn btn-sm  btn-success ">Start All Services</button>
+                            </a>
+                            <a class=" btn-sizing">
+                                <button type="button" class="btn btn-sm  btn-danger ">Stop All Services</button>
+                            </a>
+                        </div>
+                    </th>
+                    <th colspan="1">
+                        <a class="card-header  collapsed" aria-expanded="true" data-toggle="collapse"
+                            data-parent="#accordion" href="#collapseOne">
+                            <a class="card-title"></a>
+                        </a>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <a class="card-body collapse show" id="collapseOne">
+                    <tr *ngFor="let i of serviceList">
+                        <td *ngIf="(i.server==sname)" style="width: 10%;">{{i.id}} </td>
+                        <td *ngIf="(i.server==sname)" style="width: 50%;"> {{i.command}}</td>
+                        <td *ngIf="(i.status=='Running')  && (i.server==sname)" style="color:green;width:10%;">
+                            <b>{{i.status}}</b> </td>
+                        <td *ngIf="(i.status=='Stopped')  && (i.server==sname)" style="color:red; width:10%"><b>
+                                {{i.status}}</b>
+                        </td>
+                        <td *ngIf="(i.action=='Start') && (i.server==sname) " style="color:white; width:10%">
+                            <button type="submit" class="btn btn-sm btn-space-reduction btn-success" id="startbutton"
+                                (click)="startStopService(i)">Start</button>
+                            <div class="lds-dual-ring" *ngIf="(i.load=='Loading')"></div>
+                        </td>
+                        <td *ngIf="(i.action=='Stop') && (i.server==sname) " style="color:white; width:10%">
+                            <button type="submit" class="btn  btn-sm btn-space-reduction btn-danger"
+                                (click)="startStopService(i)">Stop</button>
+                            <div class="lds-dual-ring" *ngIf="(i.load=='Loading')"></div>
+                        </td>
+                    </tr>
+                </a>
+            </tbody>
+        </ng-container>
+    </table>
+</div>
+

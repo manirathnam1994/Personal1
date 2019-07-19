@@ -1,0 +1,85 @@
+<div class="formHeader">
+    <span class="formTitle">MQ Depth</span>
+</div>
+<div class="formContainer" style="font-size: 0.8rem !important;">
+        <form [formGroup]="mqDepthQueryForm" (ngSubmit)="onSubmit()">
+                <div class="card m-b-0">
+                        <div class="form-body">
+                                <div class="row-alignment">
+                                        <div class="col-sm-12 col-md-1">
+                                                <label>Environment</label>
+                                        </div>
+                                        <div class="col-sm-12 col-md-3">
+                                               <select  class="form-control" formControlName="environment"  [ngClass]="{ 'is-invalid': submitted && formValues.environment.errors }" (click)="showEmptyEnvAlert()">
+                                                        <option></option>
+                                                        <option *ngFor="let envs of environments" value="{{envs}}">
+                                                                {{envs}}</option>
+                                                </select>
+                                        </div>
+                                        <div class="col-sm-12 col-md-1">
+                                                <label>Queue</label>
+                                        </div>
+                                        <div class="col-sm-12 col-md-3">
+                                                <input type="text" class="form-control" formControlName="queue" (input)="onKeyPress($event.target.value)">
+                                        </div>
+                                        <div class="col-sm-12 col-md-3"><input type="checkbox" [checked]="userCheck" [disabled]="checkboxDisabled" (change)="disableCheckbox($event)">    Show Empty Queue
+                                        </div> 
+                                </div>
+                                <br>
+                               <div class="form-row float-right">
+                                        <div class="col-xs-4">
+                                                <button type="submit" class="btn btn-sm  btn-success ">Submit</button>
+                                        </div>
+                                        <div class="col-xs-4">
+                                                <button type="button" class="btn btn-sm  btn-danger"
+                                                        (click)="reset()">Reset</button>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+        </form>
+</div>
+
+<div class = "gridSpace"></div>
+<div id="grid-pagination">
+        <ul *ngIf="showGrid" class="pagination pagination-sm">
+                <li [ngClass]="{disabled:pager.currentPage === 1}" class="page-item">
+                        <a aria-label="First" class="page-link icon-seek-first fa fa-angle-double-left"
+                                (click)="setPage(1)"></a>
+                </li>
+                <li [ngClass]="{disabled:pager.currentPage === 1}" class="page-item">
+                        <a aria-label="Previous" class="page-link icon-seek-prev fa fa-angle-left"
+                                (click)="setPage(pager.currentPage - 1)"></a>
+                </li>
+                <div class="slick-page-number">
+                        <span>PAGE </span>
+                        <input type="number" name="page" class="pagers" min="1" max="{{pager.totalPages}}"
+                                value="{{pager.currentPage}}" (keyup.enter)="setPage(box.value)" #box />
+                        <div class="slick-page-number">
+                                <span>OF </span>
+                                <span>{{pager.totalPages}} </span>
+                        </div>
+                </div>
+                <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="page-item">
+                        <a aria-label="Next" class="page-link icon-seek-prev fa fa-angle-right"
+                                (click)="setPage(pager.currentPage + 1)"></a>
+                </li>
+                <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="page-item">
+                        <a aria-label="Last" class="page-link icon-seek-prev fa fa-angle-double-right"
+                                (click)="setPage(pager.totalPages)"></a>
+                </li>
+                <div class="slick-page-numbers">
+                        <span>RECORDS </span>
+                        <span>{{pager.totalItems}} </span>
+                </div>
+        </ul>
+</div>
+<div *ngIf="showGrid" class= "gridStyle">
+        <angular-slickgrid #containerBodyId gridId="mqDepthGrid" (onAngularGridCreated)="angularGridReady($event)"
+                [columnDefinitions]="columnDefinitions" [gridOptions]="gridOptions" [dataset]="dataset">
+        </angular-slickgrid>
+</div>
+
+<div *ngIf="displayLoader">
+        <div class="loader"></div>
+</div>

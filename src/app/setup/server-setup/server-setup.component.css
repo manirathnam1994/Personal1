@@ -1,0 +1,86 @@
+/* To set boarder for loader */
+.loaderBorder {
+    width: 25%;
+    height: 20%;
+    background-color:
+    #2a67a5;
+    position:absolute;
+    left:61.25%;
+    top:60%
+}
+
+/* To set the content for loader */
+.loaderBody {
+    position:absolute;
+    left:0%;
+    top:2.5%;
+    right:10%;
+    width:99%;
+    height: 95.5%;
+    background-color: white;
+    margin-left: 0.5%;
+    margin-right: 1%;
+}
+
+/* To set the loader text */
+.loaderText {
+    margin-left: 27%;
+    margin-top: 2.5%;
+
+}
+
+/* To set the loader */
+.loader {
+    margin-left: 3%;
+    margin-top: 2.5%;
+    float: left;
+
+}
+
+/* To set design and animation for loader */
+.loader .line {
+  width: 3px;
+  height: 15px;
+  background: #2a67a5;
+  margin: 0 1px;
+  display: inline-block;
+  animation: opacity-2 1000ms infinite ease-in-out;
+  
+}
+
+ .loader .line-1 { animation-delay: 800ms; }
+ .loader .line-2 { animation-delay: 600ms; }
+ .loader .line-3 { animation-delay: 400ms; }
+ .loader .line-4 { animation-delay: 200ms; }
+ .loader .line-6 { animation-delay: 200ms; }
+ .loader .line-7 { animation-delay: 400ms; }
+ .loader .line-8 { animation-delay: 600ms; }
+ .loader .line-9 { animation-delay: 800ms; }
+
+
+ @keyframes opacity-1 { 
+  0% { 
+    opacity: 1;
+  }
+  50% { 
+    opacity: 0;
+  }
+  100% { 
+    opacity: 1;
+  }  
+}
+
+@keyframes opacity-2 { 
+  0% { 
+    opacity: 1;
+    height: 15px;
+  }
+  50% { 
+    opacity: 0;
+    height: 12px;
+  }
+  100% { 
+    opacity: 1;
+    height: 15px;
+  }  
+}

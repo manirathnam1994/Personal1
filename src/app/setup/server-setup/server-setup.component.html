@@ -1,0 +1,120 @@
+<div class="formHeader">
+    <span class="formTitle">Server Setup</span>
+    
+</div>
+<div class="formContainer" style="font-size: 0.8rem !important;">
+    <!--MqDepth Query Form-->
+    <form [formGroup]="serverSetupForm" (ngSubmit)="onSubmit()">
+        <div class="card m-b-0">
+            <div class="form-body">
+                <div class="row-alignment">
+                    <div class="col-sm-12 col-md-1">
+                        <label>Server</label>
+                    </div>
+                    <div class="col-sm-12 col-md-4">
+                        <input type="text" class="form-control" formControlName="server"
+                            [ngClass]="{ 'is-invalid': submitted && formValues.server.errors }">
+                    </div>
+                    <div class="col-sm-12 col-md-1">
+                        <label>Host</label>
+                    </div>
+                    <div class="col-sm-12 col-md-4">
+                        <input type="text" class="form-control" formControlName="host"
+                            [ngClass]="{ 'is-invalid': submitted && formValues.host.errors }">
+                    </div>
+                </div>
+                <br>
+                <div class="row-alignment">
+                    <div class="col-sm-12 col-md-1">
+                        <label>User Name</label>
+                    </div>
+                    <div class="col-sm-12 col-md-4">
+                        <input type="text" class="form-control" formControlName="username"
+                            [ngClass]="{ 'is-invalid': submitted && formValues.username.errors }">
+                    </div>
+                    <div class="col-sm-12 col-md-1">
+                        <label>Password</label>
+                    </div>
+                    <div class=" col-sm-12 col-md-4">
+                        <input type="password" class="form-control" formControlName="password"
+                            [ngClass]="{ 'is-invalid': submitted && formValues.password.errors }">
+                    </div>
+                </div>
+                <br>
+                <div class="row-alignment">
+                    <div class="col-sm-12 col-md-1">
+                        <label>Script Path</label>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <input type="text" class="form-control" formControlName="scriptpath"
+                            [ngClass]="{ 'is-invalid': submitted && formValues.scriptpath.errors }">
+                    </div>
+                    <div  *ngIf="displayLoader" class="loaderBorder">
+                        <div class="loaderBody">
+                            <div class="loader">
+                                <span class="line line-1"></span>
+                                <span class="line line-2"></span>
+                                <span class="line line-3"></span>
+                                <span class="line line-4"></span>
+                                <span class="line line-5"></span>
+                                <span class="line line-6"></span>
+                                <span class="line line-7"></span>
+                                <span class="line line-8"></span>
+                                <span class="line line-9"></span>
+                            </div>
+                            <p class="loaderText">Please wait, validating server details...</p>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="form-row float-right">
+                    <div class="col-xs-4">
+                        <button type="submit" id="AddBtn" class="btn btn-sm  btn-success "
+                            (click)="addServerSetupData()">Add</button>
+                    </div>
+                    <div class="col-xs-4">
+                        <button type="submit" id="updateBtn" class="btn btn-sm  btn-success"
+                            (click)="updateServerData(formValueSno)" style="display:none;">Save</button>
+                    </div>
+                    <div class="col-xs-4">
+                        <button type="button" id="ResetBtn" class="btn btn-sm  btn-danger"
+                            (click)="reset()">Reset</button>
+                    </div>
+                    <div class="col-xs-4">
+                        <button type="button" id="cancelBtn" class="btn btn-sm  btn-danger" (click)="cancel()"
+                            style="display:none;">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="tableSpace"></div>
+<table class="table table-striped table-responsive">
+    <thead class="thead-colour">
+        <tr>
+            <th style="width: 8%">S.No</th>
+            <th style="width: 15%">Server</th>
+            <th style="width: 15%">Host</th>
+            <th style="width: 15%">User Name</th>
+            <th style="width: 39%">Script Path</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let i of data">
+            <td style="width: 8%">{{i.sno}}</td>
+            <td style="width: 15%">{{i.server}}</td>
+            <td style="width: 15%">{{i.host}}</td>
+            <td style="width: 15%">{{i.username}}</td>
+            <td style="width: 38%">{{i.scriptpath}}</td>
+            <td>
+                <div
+                    *ngIf="((i.sno !=null) && (i.server!=null && i.server!='') && (i.host!=null && i.host!='') && (i.username!=null && i.username!='') && (i.password!=null && i.password!='') && (i.scriptpath!=null && i.scriptpath!=''))">
+                    <a class="btn btn-icon-spacing" id="editIcon" [hidden]="editIconHide" (click)="displayServerSetupDataForEdit(i)"><i class="fa fa-pencil-square-o"></i></a>
+                    <a class="btn btn-icon-spacing text-danger" id="deleteIcon" [hidden]="deleteIconHide" (click)="onDelete(data,i.sno,i.server)"><i class="fa fa-trash-o"></i></a>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

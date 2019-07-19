@@ -1,0 +1,57 @@
+/* Container to display menu button and menu bar*/
+#menuContainer {
+	min-height: 40%;
+    height: 90%;
+    float: left;
+    width: 4%;
+    position: fixed;
+    position: relative;
+}
+/* Mainmenu of menubar (Setup)*/
+#main-menu {
+    background-color: #92AF31;
+    display: flex;
+    width: 10%;
+    z-index: 2;
+    margin-left: 1%;
+    margin-top:0.5%;
+    padding: 0;
+    position: fixed;
+}
+/* Menu buttons*/
+.menuButton {
+    background-color: #0067AC;
+	color: white;
+    font-size: 170%;
+    border: none;
+    top:20%;
+    float: left;
+    margin-left: 0.5%;
+
+}
+/* Components of menubar */
+.list-group-item {
+    background-color: #92AF31;
+    border: none;
+    font-size: 14px;
+    
+}
+
+a.list-group-item {
+    color: #FFF;
+}
+/* To change color when hover on menu */
+a.list-group-item:hover{
+    background-color: #687C23;
+    text-decoration: none;
+}
+/* To set padding for submenu */
+.list-group-level1 .list-group-item {
+    padding-left:30px;
+}
+
+
+
+
+
+

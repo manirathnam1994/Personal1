@@ -1,0 +1,80 @@
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 40px;
+  height: 40px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+  position:absolute;
+  top: 70%;
+  left: 50%;
+  margin: -50px 0px 0px -50px;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.pagers{
+  background-color: #fafbed;
+  height: 28px;
+  width: 40px;
+  padding: 2px;
+  display: inline-block;
+}
+
+.slick-page-number {
+  vertical-align: top;
+  margin-top: 5px;
+  display: inline-block;
+  padding: 0 5px;
+}
+
+.pagination {
+  margin-bottom: 5px;
+}
+
+#grid-pagination{
+  padding-left: 5px;
+  font-size: 12px;
+  font-weight: 400;
+  padding-top: 5px;
+}
+
+.slick-page-numbers {
+  vertical-align: top;
+  margin-top: 10px;
+  display: inline-block;
+  padding: 0 5px;
+}
+
+#gridSpace{
+  height: 5px;
+}
+
+#gridStyle{
+  padding-left: 5px;
+}
+/* To set background color for rows having logicalQueueName is Undefined*/ 
+.grid-UndefinedRow { background-color: #eaf7be !important }
+
+/* To set background color for rows having logicalQueueName not Undefined */
+.grid-Row { background-color: #d3ebf7 !important }
+
+/* To set border for rows in a grid */
+.slickgrid-container .grid-canvas .slick-cell, .slickgrid-container .grid-canvas .slick-headerrow-column {
+    border-top: 1px solid #5d5252 !important;
+    border-bottom: 0 none;
+    border-left: 0 none;
+    border-right: 0 none;
+}
+
+
+

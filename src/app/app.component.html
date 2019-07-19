@@ -1,0 +1,29 @@
+<div id = "base-container" >
+	<div class="background-img"
+		style="height: 100%; width: 100%; position: absolute;">
+        <app-header></app-header>
+        <div  id="menuContainer">
+            <button *ngIf="openMenu" class="menuButton" (click) ="openBlockOnClick()">&#9776;</button>
+        <button *ngIf="closeMenu" class="menuButton" (click) ="openBlockOnClick()">&#10005;</button>
+    <div class="row" >
+            <div id="main-menu" class="list-group">
+                <a href="#sub-menu" class="list-group-item" data-toggle="collapse" data-parent="#main-menu">Setup <span class="fa fa-angle-down" style='font-size:24px;color:white;float:right'></span></a>
+                <div class="collapse list-group-level1" id="sub-menu">
+                    <a href="#" class="list-group-item" data-parent="#sub-menu" routerLink="serverSetup" routerLinkActive="active" (click)="hideMenu()">Server Setup</a>
+                    <a href="#" class="list-group-item" data-parent="#sub-menu" routerLink="mqdepthSetup" routerLinkActive="active" (click)="hideMenu()">MQ Setup</a>
+                </div >
+                <a href="#" class="list-group-item" routerLink="mqdepthResult" routerLinkActive="active" (click)="hideMenu()">MQ Depth</a>
+                <a href="#" class="list-group-item" routerLink="serviceScreen" routerLinkActive="active" (click)="hideMenu()">Service</a>
+            </div>
+    </div>
+</div>
+        <div class="white-container" style="height: 90%; width: 92%;">
+            <div style="padding-left: 0.5%;padding-right:0.5%;">
+                    <router-outlet></router-outlet>
+                </div>
+        </div>
+	</div>
+	<div style="position: fixed;">
+		<app-footer></app-footer>
+	</div>
+</div>

@@ -1,0 +1,87 @@
+<div class="formHeader">
+    <span class="formTitle">MQ Setup</span>
+    
+</div>
+<div class="formContainer" style="font-size: 0.8rem !important;">
+  <!--MqDepth Query Form-->
+  <form [formGroup]="mqSetupForm" (ngSubmit)="onSubmit()" >
+    <div class="card m-b-0" style="position: relative;">
+      <div class="form-body">
+        <div class="row-alignment">
+          <div class="col-sm-12 col-md-1">
+            <label>Environment</label>
+          </div>
+          <div class="col-sm-12 col-md-3">
+            <input type="text" class="form-control" formControlName="env" [ngClass]="{ 'is-invalid': submitted && formValues.env.errors }">
+          </div>
+          <div class="col-sm-12 col-md-1">
+            <label>Server</label>
+          </div>
+          <div class="col-sm-12 col-md-3">
+                <select id="inputServer" class="form-control" formControlName="server" [ngClass]="{ 'is-invalid': submitted && formValues.server.errors }" (change)="onSelect($event.target.value)" (click)="showEmptyServerAlert()">
+                    <option></option>
+                    <option *ngFor="let server of servers" value="{{server}}">{{server}}</option>
+                </select>
+            </div>
+            <div class="col-sm-12 col-md-1">
+                <label>Queue Manager</label>
+            </div>
+            <div class=" col-sm-12 col-md-3">
+                <input type="text" class="form-control " formControlName="queMgr" [ngClass]="{ 'is-invalid': submitted && formValues.queMgr.errors }">
+            </div>
+        </div>
+        <br>
+        <div class="row-alignment">
+          <div class="col-sm-12 col-md-1">
+            <label>Queue List</label>
+          </div>
+          <div class="col-sm-12 col-md-6">
+            <input type="text" class="form-control" formControlName="queueList" [ngClass]="{ 'is-invalid': submitted && formValues.queueList.errors }">
+          </div>
+        </div>
+         <div class="form-row float-right">
+        <div class="col-xs-4">
+            <button type="submit" id="AddBtn" class="btn btn-sm  btn-success" (click)="addMQSetupData()">Add</button>
+        </div>
+        <div class="col-xs-4">
+             <button type="submit" id="updateBtn" class="btn btn-sm  btn-success" (click)="updateMQSetupData(formValueSno)" style="display:none;">Save</button>
+        </div> 
+        <div class="col-xs-4">
+            <button type="button" id="ResetBtn" class="btn btn-sm  btn-danger" (click)="reset()">Reset</button>
+        </div>
+        <div class="col-xs-4">
+            <button type="button" id="cancelBtn" class="btn btn-sm  btn-danger" (click)="cancel()" style="display:none;">Cancel</button>
+        </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="tableSpace"></div>
+<table class="table table-striped table-responsive" >
+  <thead class="thead-colour">
+    <tr>
+        <th style="width: 8%">S.No</th>
+        <th style="width: 15%">Environment</th>
+        <th style="width: 15%">Server</th>
+        <th style="width: 15%">Queue Manager</th>
+        <th style="width: 39%">Queue List</th>
+        <th>Actions</th> 
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let i of data">
+      <td style="width: 8%">{{i.sno}}</td>
+      <td style="width: 15%">{{i.env}}</td>
+      <td style="width: 15%">{{i.server}}</td>
+      <td style="width: 15%">{{i.queMgr}}</td>
+      <td style="width: 38%">{{i.queueList}}</td>
+        <td>
+        <div *ngIf = "((i.sno !=null) && (i.server!=null && i.server!='') && (i.env!=null && i.env!='') && (i.queMgr!=null && i.queMgr!='') && (i.queueList!=null && i.queueList!=''))">
+            <a class="btn btn-icon-spacing" id="editIcon" [hidden]="editIconHide" (click)="displayMQSetupDataForEdit(i)"><i class="fa fa-pencil-square-o"></i></a>
+            <a class="btn btn-icon-spacing text-danger" id="deleteIcon" [hidden]="deleteIconHide" (click)="onDelete(data,i.sno,i.env)"><i class="fa fa-trash-o"></i></a>
+        </div>
+      </td> 
+    </tr>
+  </tbody>
+</table>

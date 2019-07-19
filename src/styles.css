@@ -1,0 +1,283 @@
+/* You can add global styles to this file, and also import other style files */
+@import '../node_modules/angular-slickgrid/styles/css/slickgrid-theme-bootstrap.css';
+
+/* To set header */
+h2{
+  border:0px;
+  margin-top:0 px !important;
+  margin-left:5px;
+  padding-bottom:3px;
+  color:white;
+  font-size: 1.0rem !important;
+} 
+
+/* To create overall form structure */
+.card{
+  border-top-style: none !important;
+  border-left-style: none !important;
+  border-right-style: none !important;
+}  
+  
+/* To set a body view of form */
+.form-body{
+  padding-top:0.5rem !important;
+  padding-left: 0px !important;
+  padding-right:0px !important;
+  padding-bottom:0px !important;
+  background-color: #dbdbdb !important;
+  margin-top:5px;
+}
+
+/* To align fields in the form */
+.row-alignment{
+  flex-wrap: wrap;
+  display: flex;
+}
+
+/* To set a button alignment in the form */
+.form-row{
+  flex-wrap: wrap;
+  display:flex; 
+  margin-left: 5px;
+  padding-right: 1%
+}
+
+/* To set button spacing in the form */
+.form-row > .col, .form-row > [class*='col-']{
+  padding-right: 0px !important;
+}
+
+/* To set the space and position for the form */
+#formContainer{
+  margin-top:0.25%;
+  margin-left:0.45%;
+  width: 100%;
+  border: #2a67a5;
+  padding:0% !important;
+}
+
+/* To set the height of slickgrid header fields */
+body .slickgrid-container,
+.slick-header-columns,
+.slick-header-column,
+.ui-state-default {
+  line-height: 31px ! important;
+}
+
+/* To set the background image */
+.background-img{
+  background-image: url("./assets/background_img.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:cover; 
+  margin-top:0; 
+  overflow: none;
+  height: 100%; 
+}
+
+/* To create a container to hold form and grid view */
+.white-container {
+  margin-top:0.5%;
+  margin-left:4%;
+  margin-right:4%;
+  margin-bottom:0.5%;
+  background-color:white;
+  border: 20px solid #0092cf;
+  box-sizing: border-box;
+  border-style: solid;
+  border-width: thick;
+}
+
+/* To set the width and height for the text field */
+.form-control {
+  width:95% !important;
+  height:calc(1.5em + 0.75rem + 0px) !important;
+  padding: 0rem 0.75rem !important;
+  font-size: 0.90rem !important;}
+
+/* To set the button size in the form */
+.btn-sm {
+  margin-bottom: 10px !important;
+  height: 24px !important;
+  padding: 0px !important; 
+  font-size: 11px !important;
+  min-width: 55px !important;
+  border-radius:0px !important;
+}
+
+/* To set the button size in the form */
+.btn {
+  box-sizing: none !important;
+  border-radius: 0!important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  white-space: nowrap;
+}
+
+/*To make the submit button  glossy*/
+.btn-success {
+  background-color: green !important; 
+  background-image: linear-gradient(green,lightgreen);
+}
+
+/*To make the reset button  glossy*/
+.btn-danger {
+  background-color: red !important; 
+  background-image: linear-gradient(#8b0000, #ff0000);
+}
+
+/*To change the colour of submit button  on hover*/
+.btn-success:hover{
+  background: linear-gradient(#073,#0fa);
+}
+
+/*To change the colour of reset button  on hover*/
+.btn-danger:hover {
+  background: linear-gradient(#e8192c,#e73343);
+}
+
+/* To assign the width globally for form view */
+@media (min-width:768px) {
+  .col-md-3{
+    max-width:21% !important;
+    }
+}
+
+@media (min-width:768px) {
+  .col-md-1{
+    max-width:12.33% !important;
+    flex:0 0 9.33% !important;
+    }
+}
+
+/* To set slickgrid cell */
+.slick-cell {
+  padding: 7px 7.5834px ! important;
+  font-size: 12px ! important;
+  font-weight : 450 ! important;
+  line-height: 11px ! important;
+  font-family: Arial, Helvetica, sans-serif ! important;
+  }
+  
+/* To set color for grid rows 
+.slickgrid-container .grid-canvas .slick-row.odd .slick-cell {
+  background: #d3ebf7 !important;
+}*/
+
+/* To set color for grid header */
+.slickgrid-container .slick-header-columns .slick-header-column {
+  background-color:  #2a67a5 !important;
+}
+/* To set color for grid header fonts */
+.slickgrid-container .slick-header-columns .slick-header-column.ui-state-default {
+  color:white !important;
+}
+
+/* To align grid header */
+body .slickgrid-container .slick-header-columns .slick-header-column.ui-state-default {
+  line-height: 31px ! important;
+}
+
+/* To set height and width for base-container */
+#base-container {
+  height: 100%;
+  width: 100%;
+  overflow: none;
+}
+
+/* To set spacing between table and form */
+.tableSpace {
+ padding-top: 5px;
+}
+
+/* To set table layout */
+table thead, table tbody tr { 
+  display:table; 
+  width:100%; 
+  table-layout:fixed; 
+}
+
+/* To set colour for odd rows in table */
+.table-striped > tbody > tr:nth-child(even) > td{
+  background-color: #d3ebf7;
+} 
+
+/* To set colour for even rows in table */
+.table-striped > tbody > tr:nth-child(odd) > td{
+  background-color: white;
+} 
+.thead-colour th{
+  background-color:  #2a67a5 ;
+  color: white;    
+}
+
+/* To set text size in the table */
+.table th, 
+.table td{
+  padding:0.4rem;
+  font-size: 13px;
+}
+
+/* To set space between two buttons */
+.btn .btn-icon-spacing{
+  padding-left: 0.80rem !important;
+  padding-right: 0.5rem !important;
+  padding-top:0 !important;
+  padding-bottom:0 !important;
+}
+
+/* To set background color for error toaser message */
+.toastr-error {
+  background-color: #bd2626 !important;
+}
+
+/* To set background color for info toaser message */
+.toastr-info {
+  background-color: #38b5d0 !important;
+}
+
+/* To align icon for toaster container */
+#toastr-container > div{
+background-position-x:20px !important;
+background-position-y:15px !important;
+}
+
+/* To set space between toaster message*/
+.to-message{
+  white-space: pre-wrap;
+}
+
+/* To set table height */
+table tbody {
+ display: block;
+ max-height:calc(100vh - 400px); 
+ overflow-y:auto;
+ } 
+ 
+ /* To set space and alignment for texts in table data */
+.table td{
+ padding-top:0.1rem !important;
+ padding-left:0.3rem !important;
+ padding-right:0.1rem !important;
+ padding-bottom:0.05rem !important;
+ vertical-align: text-bottom !important;
+ }
+
+ /* To set header for each screen */
+.formHeader {
+ width:100%;
+ height: 5%;
+ background-color: #0067AC;
+ margin-top: 0.25%;
+}
+
+ /* To set title for each screen */
+
+.formTitle {
+ font-size: 14px;
+ color:white;
+ font-weight: 500;
+ margin-top: 5px;
+ margin-left: 2px;
+ font-weight: bold;
+}
